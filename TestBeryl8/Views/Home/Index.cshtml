@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h3 class="display-4">ข้อ1</h3>
+    input สำหรับข้อ1 <input type="number" id="input1" name="input1"/>
+    <p id="showtext1" name="showtext1"></p>
+
+    <h3 class="display-4 mt-5">ข้อ2</h3>
+    input สำหรับข้อ2 <input type="number" id="input2" name="input2" />
+    <br></br>
+
+    <label for="cars">เลือกหน่วยค่าเงิน:</label>
+
+    <select name="currency" id="currency">
+        <option value="33.72">WON</option>
+        <option value="0.028">USD</option>
+        <option value="3.4">YEN</option>
+    </select>
+    <p id="showtext2" name="showtext2"></p>
+
+    <h3 class="display-4">ข้อ3</h3>
+    input สำหรับข้อ3 <input type="number" id="input3" name="input3" />
+    <p id="showtext3" name="showtext3"></p>
+
+</div>
+@section scripts{
+    <script>
+        $('#input1').on('keyup', function (e) {
+            var input1 = $('#input1').val();
+            
+            if (input1 > 3) {
+                var datarow = '';
+                var datarow2 = '';
+                var checkDatarow2 = 0;
+                for(i = 1; i < input1; i++)
+                {
+                    for(j = 1; j < (input1 - i); j++)
+                    {
+                        datarow = datarow + ' ' + ' ';
+                    }
+                    for(k = 1; k <= i; k++)
+                    {
+                        datarow = datarow + '*';
+                    }
+                    for(l = 2; l <= i; l++)
+                    {
+                        datarow = datarow + '*';
+                    }
+                    datarow = datarow + '\n';
+
+                    if (checkDatarow2 < 2) {
+                        datarow2 = datarow;
+                        checkDatarow2++;
+                    }
+
+                }
+
+                var obj = $("#showtext1").text(datarow + datarow2);
+                obj.html(obj.html().replace(/\n/g, '<br/>'));
+            }
+            else
+            {
+                var datarow = '';
+                var obj = $("#showtext1").text(datarow);
+                obj.html(obj.html().replace(/\n/g, '<br/>'));
+            }
+        });
+
+        $('#input2').on('keyup', function (e) {
+            CalCurrency();
+        });
+
+        $("#currency").change(function () {
+            CalCurrency();
+        });
+
+        function CalCurrency() {
+            var input1 = $('#input2').val();
+            var select1 = $("#currency").val();
+            var selectname = $("#currency").find('option:selected').text();
+            if (input1.length > 0) {
+
+                var result = parseFloat(input1) * parseFloat(select1);
+
+                var obj = $("#showtext2").text(result.toLocaleString() + ' ' + selectname);
+                obj.html(obj.html().replace(/\n/g, '<br/>'));
+            }
+            else {
+                var datarow = '';
+                var obj = $("#showtext2").text(datarow);
+                obj.html(obj.html().replace(/\n/g, '<br/>'));
+            }
+        }
+
+        $('#input3').on('keyup', function (e) {
+            var input1 = $('#input3').val();
+            
+            if (input1.length > 0) {
+                var result =  ( parseFloat(input1) * 13000 * 95 ) / 100000 ;
+
+                var obj = $("#showtext3").text(Math.floor(result));
+                obj.html(obj.html().replace(/\n/g, '<br/>'));
+            }
+            else {
+                var datarow = '';
+                var obj = $("#showtext3").text(datarow);
+                obj.html(obj.html().replace(/\n/g, '<br/>'));
+            }
+        });
+
+    </script>
+}

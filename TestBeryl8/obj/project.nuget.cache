@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "Yd5f7JDDys6xkPwXxLKvQ1eYlaWITwMrga4YEDMJuWPT7RQ+Vo94VpMF7tj8iaK6GA8qUfPgLxfre0eSygTdEg==",
+  "success": true,
+  "projectFilePath": "D:\\Project\\TestBeryl8\\TestBeryl8\\TestBeryl8.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Byte\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
+    "C:\\Users\\Byte\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\Byte\\.nuget\\packages\\jquery.ui.combined\\1.13.2\\jquery.ui.combined.1.13.2.nupkg.sha512",
+    "C:\\Users\\Byte\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "jQuery.UI.Combined 1.13.2 depends on jQuery (>= 1.13.1) but jQuery 1.13.1 was not found. An approximate best match of jQuery 2.0.0 was resolved.",
+      "libraryId": "jQuery",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}
